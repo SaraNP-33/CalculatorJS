@@ -27,3 +27,8 @@ equalBtn.addEventListener("click", button=>{
     calculator.compute()
     calculator.updateDisplay()
 })
+
+allClear.addEventListener("click", button=>{
+    calculator.clear()
+    calculator.updateDisplay()
+})
