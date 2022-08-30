@@ -1,0 +1,32 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: 'Anek Telugu', sans-serif;
+}
+
+body{
+    padding:0;
+    margin: 0;
+    background: linear-gradient(to right, #e9b7ce,#294861);
+}
+
+.container{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4,100px);
+    grid-template-rows: minmax(120px,auto)repeat(5,100px);
+}
+.container > button{
+    cursor: pointer;
+    font-size:2rem;
+    border: 1px solid white;
+    outline: none; 
+    background-color: aliceblue;
+}
+.container > button:hover{
+    background-color:#c2bac7 ;
+}
+.spanTwo{
+    grid-column: span 2;
+}
