@@ -32,3 +32,7 @@ allClear.addEventListener("click", button=>{
     calculator.clear()
     calculator.updateDisplay()
 })
+delBtn.addEventListener("click", button=>{
+    calculator.delete()
+    calculator.updateDisplay()
+})
