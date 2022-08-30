@@ -6,15 +6,15 @@ class Calculator{
     }
  
     clear(){
-     this.currentOutputTextEl=''
-     this.previousOutputTextEl=''
+     this.currentOutput=''
+     this.previousOutput=''
      this.operation=undefined
     }
     delete(){
  
     }
     appendNumber(number){
- 
+        this.currentOutput=number
     }
     chooseOperation(operation){
  
@@ -23,7 +23,7 @@ class Calculator{
  
     }
     updateDisplay(){
- 
+        this.currentOutputTextEl.innerText = this.currentOutput
     }
  }
  

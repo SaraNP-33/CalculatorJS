@@ -6,3 +6,12 @@ const allClear= document.querySelector('[data-all-clear]')
 const equalBtn= document.querySelector('[data-equals]')
 const previousOutputTextEl= document.querySelector('[data-previous]')
 const currentOutputTextEl=document.querySelector('[data-current]')
+
+const calculator= new Calculator(previousOutputTextEl,currentOutputTextEl)
+
+numBtn.forEach(button =>{
+    button.addEventListener("click", ()=>{
+        calculator.appendNumber(button.innerText)
+        calculator.updateDisplay()
+    })
+})
