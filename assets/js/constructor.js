@@ -8,20 +8,19 @@ class Calculator{
     clear(){
      this.currentOutput=''
      this.previousOutput=''
-     this.operation=undefined
+     this.operation= undefined
     }
     delete(){
     this.currentOutput=this.currentOutput.toString().slice(0, -1)
  
     }
     appendNumber(number){
-        //statement to prevent multiple .
+       
         if(number === "." && this.currentOutput.includes(".")) return
         this.currentOutput=this.currentOutput.toString()+number.toString()
     }
     chooseOperation(operation){
         if(this.currentOutput===" ")return
-        //if we chain operations we want the operation to be executed before moving forward. 
         if(this.previousOutput !==" "){
             this.compute()
         }
@@ -56,13 +55,35 @@ class Calculator{
                 
         }
         this.currentOutput=computation
-        this.operation=undefined
+        this.operation= undefined
         this.previousOutput=" "
 
     }
+    getDisplayNumber(number){
+        const stringNumber=number.toString()
+        const intDigits=parseFloat(stringNumber.split('.')[0])
+        const decimalDigits=stringNumber.split('.')[1]
+        let intDisplay;
+
+       if(isNaN(intDigits)){
+        intDisplay=' '
+       }else{
+        intDisplay=intDigits.toLocaleString("en", {maximumFractionDigits:0})
+       }
+       if(decimalDigits != null){
+        return `${intDisplay}.${decimalDigits}`
+       }else{
+        return intDisplay
+       }
+    }
     updateDisplay(){
-        this.currentOutputTextEl.innerText = this.currentOutput
-        this.previousOutputTextEl.innerText=this.previousOutput
+        this.currentOutputTextEl.innerText = this.getDisplayNumber(this.currentOutput)
+        if(this.operation != null){
+            this.previousOutputTextEl.innerText=`${this.getDisplayNumber(this.previousOutput)} ${this.operation}`
+        }else{
+            this.previousOutputTextEl.innerText= ' '
+        }
+        
     }
  }
  
